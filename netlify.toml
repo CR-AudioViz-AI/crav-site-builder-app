@@ -1,0 +1,44 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/api/checkout"
+  to = "https://glyylxntrnrzilybpsky.supabase.co/functions/v1/checkout"
+  status = 200
+
+[[redirects]]
+  from = "/api/webhooks/stripe"
+  to = "https://glyylxntrnrzilybpsky.supabase.co/functions/v1/webhooks-stripe"
+  status = 200
+
+[[redirects]]
+  from = "/api/webhooks/paypal"
+  to = "https://glyylxntrnrzilybpsky.supabase.co/functions/v1/webhooks-paypal"
+  status = 200
+
+[[redirects]]
+  from = "/api/download/:id"
+  to = "https://glyylxntrnrzilybpsky.supabase.co/functions/v1/download?id=:id"
+  status = 200
+
+[[redirects]]
+  from = "/api/publish"
+  to = "https://glyylxntrnrzilybpsky.supabase.co/functions/v1/website-publish"
+  status = 200
+
+[context.production.environment]
+  VITE_RUNTIME_MODE = "cloud"
+  CSP_REPORT_ONLY = "false"
+  INTERNAL_BYPASS_MODE = "off"
+  INTERNAL_UNLIMITED_ORG_IDS = ""
+  HUB_URL = "disabled"
+  HUB_SIGNING_KEY = "disabled"
+
+[context.deploy-preview.environment]
+  VITE_RUNTIME_MODE = "cloud"
+  CSP_REPORT_ONLY = "true"
+  INTERNAL_BYPASS_MODE = "off"
+  INTERNAL_UNLIMITED_ORG_IDS = ""
+  HUB_URL = "disabled"
+  HUB_SIGNING_KEY = "disabled"

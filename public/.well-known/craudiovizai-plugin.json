@@ -1,0 +1,57 @@
+{
+  "tool_key": "website",
+  "name": "Website Builder",
+  "version": "1.2.0",
+  "routes": [
+    "/website",
+    "/website/new",
+    "/website/sites",
+    "/website/pages",
+    "/website/forms",
+    "/website/assets",
+    "/website/brand",
+    "/website/templates"
+  ],
+  "events_produced": [
+    "website.site.draft.created",
+    "website.template.applied",
+    "website.site.published",
+    "website.form.submitted",
+    "website.brand.updated",
+    "asset.created"
+  ],
+  "events_consumed": [
+    "newsletter.campaign.sent",
+    "logo.created"
+  ],
+  "capabilities": {
+    "draft": true,
+    "rewrite": true,
+    "publish": true,
+    "export": true,
+    "templates": true,
+    "forms": true,
+    "brand_tokens": true,
+    "asset_upload": true,
+    "page_crud": true,
+    "free_export": true,
+    "free_publish": true
+  },
+  "permissions": [
+    "website:read",
+    "website:write",
+    "website:publish",
+    "website:forms"
+  ],
+  "adapters": {
+    "deploy": ["vercel", "netlify", "cloudflare", "s3"]
+  },
+  "public_endpoints": [
+    "/f/:formId"
+  ],
+  "api": {
+    "dispatch_url": "/functions/v1/_plugin-dispatch",
+    "manifest_url": "/.well-known/craudiovizai-plugin.json",
+    "health_url": "/functions/v1/_plugin-health"
+  }
+}
