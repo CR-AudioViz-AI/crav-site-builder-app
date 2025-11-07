@@ -42,12 +42,12 @@ export async function emitEvent(event: Event): Promise<void> {
             },
             body: JSON.stringify(event),
           });
-        } catch (error) {
+        } catch (error: unknown) {
           console.error(`Failed to deliver webhook to ${webhook.url}:`, error);
         }
       }
     }
-  } catch (error) {
+  } catch (error: unknown) {
     console.error("Failed to emit event:", error);
   }
 }
