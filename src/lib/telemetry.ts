@@ -48,7 +48,7 @@ class TelemetryCollector {
           event,
           event.correlationId
         ).catch(() => {});
-      } catch (error) {
+      } catch (error: unknown) {
         console.warn('Failed to send telemetry to hub:', error);
       }
     }
