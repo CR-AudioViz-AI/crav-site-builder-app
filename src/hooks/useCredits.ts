@@ -22,7 +22,7 @@ export function useCredits() {
       } else {
         setBalance(data || 0);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error fetching credit balance:', error);
       setBalance(0);
     } finally {
