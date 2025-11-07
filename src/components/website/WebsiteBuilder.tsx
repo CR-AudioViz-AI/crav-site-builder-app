@@ -72,7 +72,7 @@ export function WebsiteBuilder({ initialBrief, template }: WebsiteBuilderProps =
       setActiveTab('canvas');
 
       console.log(`✅ Generated ${generatedPages.length} pages successfully!`);
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error generating pages:', error);
       alert('Failed to generate pages. Please check your business information and try again.');
     } finally {
@@ -107,7 +107,7 @@ export function WebsiteBuilder({ initialBrief, template }: WebsiteBuilderProps =
 
       if (!response.ok) throw new Error('Failed to save page');
       console.log('✅ Page saved successfully!');
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error saving page:', error);
       console.warn('⚠️ Failed to save page. Please try again.');
     } finally {
@@ -149,7 +149,7 @@ export function WebsiteBuilder({ initialBrief, template }: WebsiteBuilderProps =
         ...currentPage,
         blocks: updatedBlocks,
       });
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error regenerating block:', error);
       console.warn('⚠️ Failed to regenerate block. Please try again.');
     }
@@ -180,7 +180,7 @@ export function WebsiteBuilder({ initialBrief, template }: WebsiteBuilderProps =
 
       const result = await response.json();
       console.log(`✅ Published successfully! URL: ${result.url}`);
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error publishing:', error);
       console.warn('⚠️ Failed to publish. Please try again.');
     } finally {
@@ -213,7 +213,7 @@ export function WebsiteBuilder({ initialBrief, template }: WebsiteBuilderProps =
       const result = await response.json();
       console.log(`✅ Exported successfully! Download: ${result.url}`);
       window.open(result.url, '_blank');
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error exporting:', error);
       console.warn('⚠️ Failed to export. Please try again.');
     } finally {
