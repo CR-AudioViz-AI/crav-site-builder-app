@@ -174,7 +174,7 @@ Format: { "operations": [{ "type": "update_theme" | "add_section" | "update_sect
       }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
-  } catch (error) {
+  } catch (error: unknown) {
     log.error("AI apply failed", { error: error.message });
 
     try {
