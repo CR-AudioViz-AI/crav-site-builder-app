@@ -38,7 +38,7 @@ Deno.serve(async (req: Request) => {
       JSON.stringify({ ok: true }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
-  } catch (error) {
+  } catch (error: unknown) {
     return new Response(
       JSON.stringify({ ok: false, error: "invalid_input" }),
       { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
