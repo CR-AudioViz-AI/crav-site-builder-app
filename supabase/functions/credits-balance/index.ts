@@ -73,7 +73,7 @@ Deno.serve(async (req: Request) => {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       }
     );
-  } catch (error) {
+  } catch (error: unknown) {
     const log = createLogger({ request_id: requestId, action: "credits-balance" });
     log.error("Balance query failed", { error: error.message });
     return new Response(
