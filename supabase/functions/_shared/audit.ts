@@ -14,7 +14,7 @@ export async function audit(
       user_email,
       target,
     });
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Failed to write audit log:', error);
   }
 }
