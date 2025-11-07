@@ -120,7 +120,7 @@ Deno.serve(async (req: Request) => {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       }
     );
-  } catch (error) {
+  } catch (error: unknown) {
     console.error("Cost preview error:", error);
     return new Response(
       JSON.stringify({
