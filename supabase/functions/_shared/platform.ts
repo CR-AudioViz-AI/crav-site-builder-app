@@ -107,7 +107,7 @@ export async function pushEvent(
     if (!response.ok) {
       console.error("Hub push failed:", await response.text());
     }
-  } catch (error) {
+  } catch (error: unknown) {
     console.error("Hub push error:", error);
   }
 }
