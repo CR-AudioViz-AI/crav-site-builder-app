@@ -58,7 +58,7 @@ Deno.serve(async (req: Request) => {
       JSON.stringify({ ok: true, data: product }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
-  } catch (error) {
+  } catch (error: unknown) {
     return new Response(
       JSON.stringify({ ok: false, error: error.message || "server_error" }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
