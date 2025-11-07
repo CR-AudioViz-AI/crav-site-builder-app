@@ -152,7 +152,7 @@ Deno.serve(async (req: Request) => {
       status: 200,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
-  } catch (error) {
+  } catch (error: unknown) {
     log.error("Form submission failed", { error: error.message });
     return new Response(
       JSON.stringify({
