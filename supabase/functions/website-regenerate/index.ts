@@ -179,7 +179,7 @@ Deno.serve(async (req: Request) => {
       JSON.stringify(rewrittenBlock),
       { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Error in website-regenerate:', error);
     const status = error.message === 'license_invalid' ? 403 : 500;
     return new Response(
