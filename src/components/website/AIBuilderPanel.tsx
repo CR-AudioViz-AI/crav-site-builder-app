@@ -40,7 +40,7 @@ export function AIBuilderPanel({ siteId, onClose, onApplied }: AIBuilderPanelPro
 
       trackAIApply('demo-org', siteId, preset.id);
       onApplied();
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('AI apply error:', error);
       alert('Failed to apply AI action');
     } finally {
@@ -68,7 +68,7 @@ export function AIBuilderPanel({ siteId, onClose, onApplied }: AIBuilderPanelPro
       trackAIApply('demo-org', siteId, 'custom', { prompt: customPrompt });
       setCustomPrompt('');
       onApplied();
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('AI apply error:', error);
       alert('Failed to apply custom action');
     } finally {
