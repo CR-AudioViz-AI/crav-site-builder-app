@@ -269,7 +269,7 @@ export function PreviewPage() {
       if (aiRes.ok) {
         loadSiteData();
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Logo upload failed:', error);
     }
   }
@@ -287,7 +287,7 @@ export function PreviewPage() {
       if (!response.ok) throw new Error('Publish failed');
       const result = await response.json();
       setPublishedUrl(result.data.url);
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Publish failed:', error);
       alert('Failed to publish site');
     } finally {
@@ -309,7 +309,7 @@ export function PreviewPage() {
       a.download = `site-${siteId}.zip`;
       a.click();
       window.URL.revokeObjectURL(url);
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Export failed:', error);
       alert('Failed to export site');
     } finally {
