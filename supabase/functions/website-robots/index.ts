@@ -42,7 +42,7 @@ Sitemap: ${baseUrl}/sitemap.xml`;
         "Cache-Control": "public, max-age=86400",
       },
     });
-  } catch (error) {
+  } catch (error: unknown) {
     return new Response(`Error generating robots.txt: ${error.message}`, {
       status: 500,
     });
