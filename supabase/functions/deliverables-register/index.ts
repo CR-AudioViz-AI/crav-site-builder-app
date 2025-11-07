@@ -85,7 +85,7 @@ Deno.serve(async (req: Request) => {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       }
     );
-  } catch (error) {
+  } catch (error: unknown) {
     console.error("Deliverable registration error:", error);
     return new Response(
       JSON.stringify({
