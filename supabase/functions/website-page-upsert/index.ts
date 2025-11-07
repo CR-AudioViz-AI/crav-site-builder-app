@@ -206,7 +206,7 @@ Deno.serve(async (req: Request) => {
       JSON.stringify({ ok: false, error: "invalid_operation", request_id: requestId }),
       { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
-  } catch (error) {
+  } catch (error: unknown) {
     const log = createLogger({ request_id: requestId, action: "website-page-upsert" });
     log.error("Page upsert failed", { error: error.message });
     return new Response(
