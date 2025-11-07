@@ -56,7 +56,7 @@ ${(pages || [])
         "Cache-Control": "public, max-age=3600",
       },
     });
-  } catch (error) {
+  } catch (error: unknown) {
     return new Response(`Error generating sitemap: ${error.message}`, {
       status: 500,
     });
