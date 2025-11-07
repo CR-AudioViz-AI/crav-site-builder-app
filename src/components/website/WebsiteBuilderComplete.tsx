@@ -84,7 +84,7 @@ export function WebsiteBuilder() {
 
         if (newSite) setCurrentSite(newSite);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error initializing site:', error);
     }
   };
@@ -106,7 +106,7 @@ export function WebsiteBuilder() {
           setCurrentPage(data[0]);
         }
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error loading pages:', error);
     }
   };
@@ -163,7 +163,7 @@ export function WebsiteBuilder() {
 
       setCurrentPage(newPage);
       setActiveTab('canvas');
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error generating page:', error);
       console.warn('⚠️ Failed to generate page. Please try again.');
     } finally {
@@ -204,7 +204,7 @@ export function WebsiteBuilder() {
         await loadPages();
         console.log('✅ Page saved successfully!');
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error saving page:', error);
       console.warn('⚠️ Failed to save page. Please try again.');
     } finally {
@@ -253,7 +253,7 @@ export function WebsiteBuilder() {
         ...currentPage,
         blocks: updatedBlocks,
       });
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error regenerating block:', error);
       console.warn('⚠️ Failed to regenerate block. Please try again.');
     }
@@ -293,7 +293,7 @@ export function WebsiteBuilder() {
 
       const result = await response.json();
       console.log(`✅ Published successfully! URL: ${result.url}`);
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error publishing:', error);
       console.warn('⚠️ Failed to publish. Please try again.');
     } finally {
@@ -335,7 +335,7 @@ export function WebsiteBuilder() {
       const result = await response.json();
       console.log(`✅ Exported successfully! Download: ${result.url}`);
       window.open(result.url, '_blank');
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error exporting:', error);
       console.warn('⚠️ Failed to export. Please try again.');
     } finally {
