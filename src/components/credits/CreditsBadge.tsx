@@ -35,7 +35,7 @@ export function CreditsBadge({ onOpenDrawer }: CreditsBadgeProps) {
       if (result.ok) {
         setCredits(result.data);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Failed to load credits:', error);
     } finally {
       setLoading(false);
