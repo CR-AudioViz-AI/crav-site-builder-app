@@ -53,7 +53,7 @@ export function CreditsDrawer({ isOpen, onClose }: CreditsDrawerProps) {
       if (result.ok) {
         setEntries(result.data || []);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Failed to load ledger:', error);
     } finally {
       setLoading(false);
