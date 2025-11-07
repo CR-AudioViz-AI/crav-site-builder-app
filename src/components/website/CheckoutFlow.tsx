@@ -41,7 +41,7 @@ export default function CheckoutFlow({ product, onSuccess }: CheckoutFlowProps) 
       } else {
         throw new Error('No checkout URL returned');
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Checkout failed:', error);
       alert('Checkout failed. Please try again.');
     } finally {
