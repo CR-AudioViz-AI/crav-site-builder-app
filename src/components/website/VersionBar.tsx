@@ -29,7 +29,7 @@ export function VersionBar({ siteId, currentVersion, onVersionChange }: VersionB
       if (!response.ok) return;
       const data = await response.json();
       setVersions(data.versions || []);
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Failed to load versions:', error);
     }
   }
@@ -48,7 +48,7 @@ export function VersionBar({ siteId, currentVersion, onVersionChange }: VersionB
         await loadVersions();
         onVersionChange?.();
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Failed to undo:', error);
     } finally {
       setLoading(false);
@@ -70,7 +70,7 @@ export function VersionBar({ siteId, currentVersion, onVersionChange }: VersionB
         onVersionChange?.();
         setShowVersions(false);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Failed to restore:', error);
     } finally {
       setLoading(false);
@@ -84,7 +84,7 @@ export function VersionBar({ siteId, currentVersion, onVersionChange }: VersionB
         const data = await response.json();
         alert(JSON.stringify(data.diff, null, 2));
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Failed to view diff:', error);
     }
   }
