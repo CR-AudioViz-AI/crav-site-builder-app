@@ -218,7 +218,7 @@ Section kinds: hero, features, services, testimonials, faq, contact, cta, footer
       status: 200,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
-  } catch (error) {
+  } catch (error: unknown) {
     const status =
       error.message === "entitlement_required" || error.message === "license_invalid"
         ? 403
