@@ -105,7 +105,7 @@ Deno.serve(async (req: Request) => {
         "Content-Disposition": `attachment; filename="${product.name || "download"}"`,
       },
     });
-  } catch (error) {
+  } catch (error: unknown) {
     log.error("Download failed", { error: error.message });
     return new Response(
       JSON.stringify({
