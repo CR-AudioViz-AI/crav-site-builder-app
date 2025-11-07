@@ -89,7 +89,7 @@ Deno.serve(async (req: Request) => {
             payload: eventPayload,
           }),
         });
-      } catch (error) {
+      } catch (error: unknown) {
         console.error("Failed to emit brand.updated event:", error);
       }
     }
@@ -111,7 +111,7 @@ Deno.serve(async (req: Request) => {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       }
     );
-  } catch (error) {
+  } catch (error: unknown) {
     console.error("Brand kit sync error:", error);
     return new Response(
       JSON.stringify({
