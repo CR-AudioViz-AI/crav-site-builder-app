@@ -57,7 +57,7 @@ export async function emitSuiteEvent(
     } else {
       console.log(`Suite event emitted: ${event}`);
     }
-  } catch (error) {
+  } catch (error: unknown) {
     console.error(`Error emitting suite event ${event}:`, error);
   }
 }
