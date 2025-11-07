@@ -25,7 +25,7 @@ function BrandHeader() {
         if (result.ok && result.data) {
           setBranding(result.data);
         }
-      } catch (error) {
+      } catch (error: unknown) {
         console.error('Failed to load branding:', error);
       }
     };
