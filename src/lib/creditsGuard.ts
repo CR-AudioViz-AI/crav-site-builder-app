@@ -180,7 +180,7 @@ export async function withCreditsGuard<T>(
       entryId: entryId || undefined
     };
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error(`Operation failed for ${options.correlationId}:`, error);
 
     // 4. Refund credits on failure
