@@ -57,7 +57,7 @@ export async function guard(
     }
 
     return { supabase, orgId, user };
-  } catch (error) {
+  } catch (error: unknown) {
     return { error: error.message || 'server_error', status: 500 };
   }
 }
