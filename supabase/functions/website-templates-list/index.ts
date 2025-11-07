@@ -61,7 +61,7 @@ Deno.serve(async (req: Request) => {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       }
     );
-  } catch (error) {
+  } catch (error: unknown) {
     log.error("Template list failed", { error: error.message });
     return new Response(
       JSON.stringify({
