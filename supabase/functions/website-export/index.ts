@@ -42,7 +42,7 @@ async function pushEventToHub(eventType: string, payload: Record<string, any>): 
     if (!response.ok) {
       console.error("Hub push failed:", await response.text());
     }
-  } catch (error) {
+  } catch (error: unknown) {
     console.error("Hub push error:", error);
   }
 }
@@ -234,7 +234,7 @@ Deno.serve(async (req: Request) => {
       JSON.stringify(result),
       { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Error in website-export:', error);
     const status = error.message === 'license_invalid' ? 403 : 500;
     return new Response(
